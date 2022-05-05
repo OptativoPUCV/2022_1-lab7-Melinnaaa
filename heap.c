@@ -17,22 +17,32 @@ typedef struct Heap{
 } Heap;
 
 
-void* heap_top(Heap* pq){
-    return NULL;
+void* heap_top(Heap* pq)
+{
+   if (pq == NULL || pq->heapArray == NULL) return NULL;
+   
+   if (pq->heapArray[0].data != NULL)
+   {
+      return pq->heapArray[0].data != NULL;
+   }
+   return NULL;
 }
 
 
 
-void heap_push(Heap* pq, void* data, int priority){
+void heap_push(Heap* pq, void* data, int priority)
+{
 
 }
 
 
-void heap_pop(Heap* pq){
+void heap_pop(Heap* pq)
+{
 
 }
 
-Heap* createHeap(){
+Heap* createHeap()
+{
 
    return NULL;
 }
