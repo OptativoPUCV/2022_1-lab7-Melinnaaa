@@ -45,7 +45,7 @@ Heap* createHeap()
 {
    Heap* pq = (Heap*) calloc (1, sizeof(Heap));
    pq->capac = 0;
-   pq->size = 10;
-   pq->heapArray = (heapElem*) calloc (pq->size, sizeof(heapElem));
+   pq->size = 0;
+   pq->heapArray = malloc (sizeof(heapElem));
    return pq;
 }
