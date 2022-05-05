@@ -75,16 +75,14 @@ void heap_push(Heap* pq, void* data, int priority)
    pq->size = pq->size + 1;
 }
 
-//Heap Pop tiene problemas
 void heap_pop(Heap* pq)
-{/*
-   pq->size = pq->size - 1;
+{
    pq->heapArray[0] = pq->heapArray[pq->size];
-   heapElem* aux = (heapElem*) calloc (1, sizeof(heapElem*));
+   pq->size = pq->size - 1;   
    int pos = 0;
-   while (pos <= pq->size - 1)
+   heapElem* aux = (heapElem*) calloc (1, sizeof(heapElem*)); 
+   while (pos <= pq->size)
    {
-      //Swaps
       if (pq->heapArray[(2*pos)+1].priority > pq->heapArray[(2*pos)+2].priority)
       {
         if (pq->heapArray[(2*pos)+1].priority > pq->heapArray[pos].priority)
@@ -95,6 +93,11 @@ void heap_pop(Heap* pq)
          pq->heapArray[pos].data = aux->data;
          pq->heapArray[pos].priority = aux->priority;
          pos = (2*pos)+1;
+        }
+        else
+        {
+          swap(pq, pos);
+          break;
         }
       }
       else if (pq->heapArray[(2*pos)+1].priority < pq->heapArray[(2*pos)+2].priority)
@@ -108,13 +111,17 @@ void heap_pop(Heap* pq)
           pq->heapArray[pos].priority = aux->priority;
           pos = (2*pos)+2;          
         }
+        else
+        {
+          swap(pq, pos);
+          break;
+        }
       }
       else
       {
-        return;
+        break;
       }
-      swap(pq, pos);
-   }*/  
+   } 
 }
 
 Heap* createHeap()
